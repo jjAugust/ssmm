@@ -24,6 +24,36 @@ public class UserController
 		return "showUser";
 	}
 	
+	@RequestMapping("/deleteUser")
+	public String deleteUser(String id, HttpServletRequest req)
+	{
+
+		Integer i=0;
+		i=us.deleteUserAndPassword(Integer.valueOf(id));
+		if(i==1){
+			return "index";
+		}
+		else
+			return "";
+	}
+	
+	@RequestMapping("/addUser")
+	public String addUser(String name,String password, HttpServletRequest req)
+	{
+
+		Integer i=0;
+		User role = new User();
+		role.setName(name);
+		role.setPassword(password);
+		i=us.insertUserAndPassword(role);
+		if(i==1){
+			return "index";
+		}
+		else
+			return "";
+	}
+	
+	
 	@RequestMapping("/{id}/showUser1")
 	public String showUser1(@PathVariable String id, HttpServletRequest req)
 	{

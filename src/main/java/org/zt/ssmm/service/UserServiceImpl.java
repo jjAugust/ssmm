@@ -31,6 +31,18 @@ public class UserServiceImpl implements UserService
 		return userMapper.getAllUsersWithRole();
 	}
 
+	@Override
+	public int deleteUserAndPassword(int record) 
+	{
+		return userMapper.deleteByPrimaryKey(record);
+	}
+	
+	@Override
+	public int insertUserAndPassword(User role) 
+	{
+		return userMapper.insert2(role);
+	}
+	
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}

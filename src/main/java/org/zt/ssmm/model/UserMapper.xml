@@ -26,6 +26,10 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
       #{birthdate,jdbcType=TIMESTAMP})
   </insert>
+    <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
+    insert into user (name,password)
+    values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})
+  </insert>
   <insert id="insertSelective" parameterType="org.zt.ssmm.core.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
