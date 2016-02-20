@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.zt.ssmm.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="org.zt.ssmm.core.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="password" property="password" jdbcType="CHAR" />
+    <result column="birthdate" property="birthdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, password, birthdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.zt.ssmm.core.User" >
+    insert into user (id, name, password, 
+      birthdate)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
+      #{birthdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.zt.ssmm.core.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="birthdate != null" >
+        birthdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.zt.ssmm.core.User" >
+    update user
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=CHAR},
+      </if>
+      <if test="birthdate != null" >
+        birthdate = #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.zt.ssmm.core.User" >
+    update user
+    set name = #{name,jdbcType=CHAR},
+      password = #{password,jdbcType=CHAR},
+      birthdate = #{birthdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getAllUsers" resultMap="BaseResultMap">
+  	select * from user
+  </select>
+  <resultMap id="UserResultMap" type="org.zt.ssmm.core.User" extends="BaseResultMap">
+  	<!-- property与User对象的roles属性一致 -->
+  	<collection property="roles" javaType="list" ofType="org.zt.ssmm.core.Role">
+  		<!-- property与Role对象的属性对应，column与SQL语句的别名对应 -->
+  		<id property="id" column="r_id"/>
+  		<result property="text" column="r_text"/>
+  	</collection>
+  </resultMap>
+  <select id="getAllUsersWithRole" resultMap="UserResultMap">
+	select
+	u.id,
+	u.name,
+	u.password,
+	u.birthdate,
+	ur.id,
+	ur.role_id,
+	ur.user_id,
+	r.id r_id, 
+	r.text r_text
+	from user u 
+	join user_role ur on u.id = ur.user_id 
+	join role r on ur.role_id = r.id
+  </select>
+</mapper>
