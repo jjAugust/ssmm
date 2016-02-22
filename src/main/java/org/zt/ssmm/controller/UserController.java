@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.zt.ssmm.core.Returntype;
 import org.zt.ssmm.core.User;
 import org.zt.ssmm.service.UserService;
 
@@ -42,7 +44,25 @@ public class UserController
 	}
 	}
 	
+    /** 
+     * 测试返回JSON数据 
+     * @param session 
+     * @return 
+     */  
+    @RequestMapping(value="/test",produces="text/html;charset=UTF-8" )  
+    @ResponseBody  
+    public Object test(HttpServletRequest req){  
+          
+        System.out.println("test....................");  
+        Returntype text=new Returntype();
+        text.setCodeid("error01");
+        text.setReturntext("测试");
+        return text;  
+    }  
+	
+	
 	@RequestMapping("/addUser")
+
 	public String addUser(String name,String password, HttpServletRequest req)
 	{
 
