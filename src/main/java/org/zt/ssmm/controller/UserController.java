@@ -31,26 +31,46 @@ public class UserController
 		Integer i=0;
 		i=us.deleteUserAndPassword(Integer.valueOf(id));
 		if(i==1){
+
+			req.setAttribute("message", "delete success");
 			return "index";
 		}
-		else
-			return "";
+		else{
+
+			req.setAttribute("message", "delete fail");
+			return "index";
+	}
 	}
 	
 	@RequestMapping("/addUser")
 	public String addUser(String name,String password, HttpServletRequest req)
 	{
 
-		Integer i=0;
+
 		User role = new User();
 		role.setName(name);
 		role.setPassword(password);
-		i=us.insertUserAndPassword(role);
-		if(i==1){
+		//先查询是否已用了该登录名 否则需提示
+		Integer j=0;
+		j=us.selectUser(name);
+		if(j>=1){
+			req.setAttribute("message", "name already exist");
 			return "index";
 		}
-		else
-			return "";
+		
+		else{
+			Integer i=0;
+		i=us.insertUserAndPassword(role);
+		if(i==1){
+			req.setAttribute("message", "add success");
+			return "index";
+		}
+		else{
+			
+			req.setAttribute("message", "add fail");
+		return "index";
+		}
+		}
 	}
 	
 	

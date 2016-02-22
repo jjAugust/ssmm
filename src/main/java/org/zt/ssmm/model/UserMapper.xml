@@ -16,6 +16,11 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+    <select id="selectUser" resultType="java.lang.Integer" parameterType="java.lang.String" >
+  select count(1) from user t where t.name=#{name};
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
     where id = #{id,jdbcType=INTEGER}

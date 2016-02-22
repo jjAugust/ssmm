@@ -21,4 +21,5 @@ public interface UserMapper {
     List<User> getAllUsers();
     
     List<User> getAllUsersWithRole();
+    int selectUser(String name);
 }

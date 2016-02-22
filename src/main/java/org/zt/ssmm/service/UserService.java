@@ -12,4 +12,6 @@ public interface UserService
 	int deleteUserAndPassword(int record);
 
 	int insertUserAndPassword(User role);
+	int selectUser(String name);
+//	Integer deleteUserAndPassword(Integer valueOf);
 }

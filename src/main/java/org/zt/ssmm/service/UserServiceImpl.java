@@ -43,6 +43,12 @@ public class UserServiceImpl implements UserService
 		return userMapper.insert2(role);
 	}
 	
+	@Override
+	public int selectUser(String role) 
+	{
+		return userMapper.selectUser(role);
+	}
+	
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}
