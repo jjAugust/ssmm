@@ -47,7 +47,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
         String url = requestUri.substring(contextPath.length());  
         
           
-        String username =  (String)request.getSession().getAttribute("user");   
+        String username =  (String)request.getSession().getAttribute("manager");   
         if(username == null){  
         	 System.out.println("test2....................");  
             request.getRequestDispatcher("/index.jsp").forward(request, response);  

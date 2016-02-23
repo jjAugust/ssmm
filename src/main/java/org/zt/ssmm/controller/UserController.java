@@ -1,6 +1,7 @@
 package org.zt.ssmm.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,11 @@ public class UserController
 	private UserService us;
 	
 	@RequestMapping("/showUser")
-	public String showUser(String id, HttpServletRequest req)
+	public String showUser(String id, HttpServletRequest req,HttpSession httpSession)
 	{
 		User u = us.getUserById(Integer.valueOf(id));
 		req.setAttribute("user", u);
+		  httpSession.setAttribute("manager", u.getName());  
 		return "showUser";
 	}
 	
