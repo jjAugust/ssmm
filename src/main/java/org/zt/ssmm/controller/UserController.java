@@ -57,8 +57,8 @@ public class UserController
           
         System.out.println("test....................");  
         Returntype text=new Returntype();
-        text.setCodeid("error01");
-        text.setReturntext("测试");
+        text.setCode("error01");
+        text.setMessage("测试");
         return text;  
     }  
 	

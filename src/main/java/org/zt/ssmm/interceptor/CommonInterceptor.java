@@ -16,7 +16,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * 2014-8-1 
  */  
 public class CommonInterceptor extends HandlerInterceptorAdapter{  
-    public static final String LAST_PAGE = "com.alibaba.lastPage";  
     /* 
      * 利用正则映射到需要拦截的路径     
       
@@ -40,11 +39,6 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
     @Override    
     public boolean preHandle(HttpServletRequest request,    
             HttpServletResponse response, Object handler) throws Exception {    
-        if ("GET".equalsIgnoreCase(request.getMethod())) {  
-        }  
-        String requestUri = request.getRequestURI();  
-        String contextPath = request.getContextPath();  
-        String url = requestUri.substring(contextPath.length());  
         
           
         String username =  (String)request.getSession().getAttribute("manager");   

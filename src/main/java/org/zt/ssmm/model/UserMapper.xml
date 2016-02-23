@@ -31,6 +31,10 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
       #{birthdate,jdbcType=TIMESTAMP})
   </insert>
+      <insert id="insertIpinfo" parameterType="org.zt.ssmm.core.Ip" >
+    insert into ipinformation (ip,url,date)
+    values (#{ip},#{url},#{time})
+  </insert>
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
     insert into user (name,password)
     values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})
@@ -114,4 +118,5 @@
 	join user_role ur on u.id = ur.user_id 
 	join role r on ur.role_id = r.id
   </select>
+
 </mapper>

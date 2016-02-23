@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.core.User;
 import org.zt.ssmm.dao.UserMapper;
 
@@ -47,6 +48,12 @@ public class UserServiceImpl implements UserService
 	public int selectUser(String role) 
 	{
 		return userMapper.selectUser(role);
+	}
+	
+	@Override
+	public int insertIpinfo(Ip info) 
+	{
+		return userMapper.insertIpinfo(info);
 	}
 	
 	public UserMapper getUserMapper() {

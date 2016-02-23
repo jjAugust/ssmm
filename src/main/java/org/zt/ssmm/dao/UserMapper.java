@@ -2,6 +2,7 @@ package org.zt.ssmm.dao;
 
 import java.util.List;
 
+import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.core.User;
 
 public interface UserMapper {
@@ -22,4 +23,5 @@ public interface UserMapper {
     
     List<User> getAllUsersWithRole();
     int selectUser(String name);
+    int insertIpinfo(Ip info);
 }

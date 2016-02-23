@@ -2,25 +2,53 @@ package org.zt.ssmm.core;
 
 public class Returntype {
 
-    private String codeid;
+    private String code;
 
-    public String getCodeid() {
-		return codeid;
+	private String message;
+    private String data;
+    private Object a;
+
+
+	public Object getA() {
+		return a;
 	}
 
-	public void setCodeid(String codeid) {
-		this.codeid = codeid;
+
+	public void setA(Object a) {
+		this.a = a;
 	}
 
-	public String getReturntext() {
-		return returntext;
+
+	public String getData() {
+		return data;
 	}
 
-	public void setReturntext(String returntext) {
-		this.returntext = returntext;
+
+	public void setData(String data) {
+		this.data = data;
 	}
 
-	private String returntext;
+
+	public String getCode() {
+		return code;
+	}
+
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
 
 
 }
