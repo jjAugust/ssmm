@@ -16,5 +16,7 @@ public interface UserService
 	int selectUser(String name);
 	int insertIpinfo(Ip info);
 	User selectByNamePWD(User role);
+	int selectIpOneSecond(Ip info);
+	int insertBlackIp(Ip info);
 //	Integer deleteUserAndPassword(Integer valueOf);
 }

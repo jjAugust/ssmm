@@ -26,6 +26,10 @@
   select count(1) from user t where t.name=#{name};
   </select>
   
+     <select id="selectIpOneSecond" resultType="java.lang.Integer" parameterType="org.zt.ssmm.core.Ip" >
+  select count(1) from ipinformation t where t.ip=#{ip} and t.url=#{url} and t.date=#{time};
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
     where id = #{id,jdbcType=INTEGER}
@@ -40,6 +44,12 @@
     insert into ipinformation (ip,url,date)
     values (#{ip},#{url},#{time})
   </insert>
+  
+     <insert id="insertBlackIp" parameterType="org.zt.ssmm.core.Ip" >
+    insert into blackIp (ip,blackUrl,datetime)
+    values (#{ip},#{url},#{time})
+  </insert>
+  
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
     insert into user (name,password)
     values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})

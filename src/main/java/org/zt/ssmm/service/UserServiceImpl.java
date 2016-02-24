@@ -57,9 +57,21 @@ public class UserServiceImpl implements UserService
 	}
 	
 	@Override
+	public int insertBlackIp(Ip info) 
+	{
+		return userMapper.insertBlackIp(info);
+	}
+	
+	@Override
 	public User selectByNamePWD(User info) 
 	{
 		return userMapper.selectByNamePWD(info);
+	}
+	
+	@Override
+	public int selectIpOneSecond(Ip info) 
+	{
+		return userMapper.selectIpOneSecond(info);
 	}
 	
 	public UserMapper getUserMapper() {

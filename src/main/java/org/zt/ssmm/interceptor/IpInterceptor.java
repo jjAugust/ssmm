@@ -22,8 +22,7 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
     @Override    
     public boolean preHandle(HttpServletRequest request,    
             HttpServletResponse response, Object handler) throws Exception {    
-        if ("GET".equalsIgnoreCase(request.getMethod())) {  
-        }  
+   
 
         String requestUri = request.getRequestURI();  
         String contextPath = request.getContextPath();  
@@ -40,8 +39,19 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
         info.setUrl(url);
         info.setTime(df.format(new Date()));
         
+        if (us.selectIpOneSecond(info)>=1) {  
+        	
+        }  
+        
+        
+        
 		us.insertIpinfo(info);
- 
+        System.out.println(us.selectIpOneSecond(info));
+        if(us.selectIpOneSecond(info)>=5){
+        	us.insertBlackIp(info);
+        	 request.getRequestDispatcher("/blackIp.jsp").forward(request, response);  
+        	return false;
+        }
             return true;     
     }    
     
