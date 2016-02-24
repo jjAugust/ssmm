@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${user.id} title here</title>
+<title>${user.id} welcome</title>
 </head>
 <body>${user.name}
 </body>

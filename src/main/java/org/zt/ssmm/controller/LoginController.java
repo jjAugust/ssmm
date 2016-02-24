@@ -17,13 +17,34 @@ public class LoginController {
 	@Autowired
 	private UserService us;
 	
-	@RequestMapping("/login")
+	@RequestMapping("/login2")
 	public String showUser(String id, HttpServletRequest req,HttpSession httpSession)
 	{
 		User u = us.getUserById(Integer.valueOf(id));
 		req.setAttribute("user", u);
-		  httpSession.setAttribute("manager", u.getName());  
+		  httpSession.setAttribute("username", u.getName());  
 		return "showUser";
+	}
+	
+	@RequestMapping("/login")
+	public String login(String name,String password, HttpServletRequest req,HttpSession httpSession)
+	{
+		User po=new User();
+		po.setName(name);
+		po.setPassword(password);
+		
+		
+		User u = us.selectByNamePWD(po);
+		if(u==null){
+
+			  return "error";
+		}
+		else{
+			req.setAttribute("user", u);
+			  httpSession.setAttribute("id", u.getId()); 
+		  httpSession.setAttribute("username", u.getName());  
+		  return "showUser";
+		}
 	}
 	
 	public UserService getUs() {

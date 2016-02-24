@@ -22,9 +22,8 @@ public class UserController
 	@RequestMapping("/showUser")
 	public String showUser(String id, HttpServletRequest req,HttpSession httpSession)
 	{
-		User u = us.getUserById(Integer.valueOf(id));
+		User u = us.getUserById( (Integer)req.getSession().getAttribute("id"));
 		req.setAttribute("user", u);
-		  httpSession.setAttribute("manager", u.getName());  
 		return "showUser";
 	}
 	
@@ -51,7 +50,7 @@ public class UserController
      * @param session 
      * @return 
      */  
-    @RequestMapping(value="/test",produces="text/html;charset=UTF-8" )  
+    @RequestMapping(value="/test" )  
     @ResponseBody  
     public Object test(HttpServletRequest req){  
           

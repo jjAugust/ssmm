@@ -24,4 +24,5 @@ public interface UserMapper {
     List<User> getAllUsersWithRole();
     int selectUser(String name);
     int insertIpinfo(Ip info);
+    User selectByNamePWD(User role);
 }

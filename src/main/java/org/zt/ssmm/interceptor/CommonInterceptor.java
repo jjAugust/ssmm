@@ -41,7 +41,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
             HttpServletResponse response, Object handler) throws Exception {    
         
           
-        String username =  (String)request.getSession().getAttribute("manager");   
+        String username =  (String)request.getSession().getAttribute("username");   
         if(username == null){  
         	 System.out.println("test2....................");  
             request.getRequestDispatcher("/index.jsp").forward(request, response);  

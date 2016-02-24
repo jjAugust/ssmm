@@ -56,6 +56,12 @@ public class UserServiceImpl implements UserService
 		return userMapper.insertIpinfo(info);
 	}
 	
+	@Override
+	public User selectByNamePWD(User info) 
+	{
+		return userMapper.selectByNamePWD(info);
+	}
+	
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}

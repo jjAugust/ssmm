@@ -16,7 +16,12 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  
+  <select id="selectByNamePWD" resultMap="BaseResultMap" parameterType="org.zt.ssmm.core.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where name = #{name} and password=#{password}
+  </select>
     <select id="selectUser" resultType="java.lang.Integer" parameterType="java.lang.String" >
   select count(1) from user t where t.name=#{name};
   </select>
