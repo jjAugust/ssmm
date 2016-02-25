@@ -18,5 +18,6 @@ public interface UserService
 	User selectByNamePWD(User role);
 	int selectIpOneSecond(Ip info);
 	int insertBlackIp(Ip info);
+	int selectBlackIp(Ip info);
 //	Integer deleteUserAndPassword(Integer valueOf);
 }

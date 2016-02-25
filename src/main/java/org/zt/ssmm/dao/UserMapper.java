@@ -27,4 +27,5 @@ public interface UserMapper {
     int insertBlackIp(Ip info);
     User selectByNamePWD(User role);
     int selectIpOneSecond(Ip info);
+    int selectBlackIp(Ip info);
 }

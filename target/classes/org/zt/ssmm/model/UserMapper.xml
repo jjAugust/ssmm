@@ -50,6 +50,10 @@
     values (#{ip},#{url},#{time})
   </insert>
   
+   <select id="selectBlackIp" resultType="java.lang.Integer" parameterType="org.zt.ssmm.core.Ip" >
+  select count(1) from blackip t where t.ip=#{ip} and LEFT(t.datetime,10)=LEFT(#{time},10);
+  </select>
+  
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
     insert into user (name,password)
     values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})

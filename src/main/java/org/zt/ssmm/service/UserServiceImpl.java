@@ -74,6 +74,15 @@ public class UserServiceImpl implements UserService
 		return userMapper.selectIpOneSecond(info);
 	}
 	
+	@Override
+	public int selectBlackIp(Ip info) 
+	{
+		return userMapper.selectBlackIp(info);
+	}
+	
+
+	
+	
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}

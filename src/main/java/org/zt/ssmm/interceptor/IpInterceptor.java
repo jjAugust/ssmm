@@ -28,25 +28,26 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
         String contextPath = request.getContextPath();  
         String url = requestUri.substring(contextPath.length());  
         String ip=request.getRemoteAddr();
-        System.out.println(ip);  
-        System.out.println(url);  
+//        System.out.println(ip);  
+//        System.out.println(url);  
         
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+//        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         
         Ip info=new Ip();
         info.setIp(ip);
         info.setUrl(url);
         info.setTime(df.format(new Date()));
         
-        if (us.selectIpOneSecond(info)>=1) {  
-        	
+        if (us.selectBlackIp(info)>=1) {  
+        	 request.getRequestDispatcher("/blackIp.jsp").forward(request, response);  
+         	return false;
         }  
         
         
         
 		us.insertIpinfo(info);
-        System.out.println(us.selectIpOneSecond(info));
+//        System.out.println(us.selectIpOneSecond(info));
         if(us.selectIpOneSecond(info)>=5){
         	us.insertBlackIp(info);
         	 request.getRequestDispatcher("/blackIp.jsp").forward(request, response);  
