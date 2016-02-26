@@ -21,15 +21,22 @@ public class Authentication  extends HandlerInterceptorAdapter{
 	@Override    
 	public boolean preHandle(HttpServletRequest request,    
 			HttpServletResponse response, Object handler) throws Exception {    
-		request.getParameter("access_token");
+		//		request.getParameter("access_token");
 		System.out.println(request.getParameter("access_token"));
-		if(request.getParameter("access_token").equals("asdfg")){
-			return true;    
-		}
-		else{
+		if(request.getParameter("access_token")==null){
 			response.getWriter().write("authentication wrong" );
-			//	 request.getRequestDispatcher("/blackIp.jsp").forward(request, response);  
 			return false;
+		}
+		else
+		{
+			if(request.getParameter("access_token").equals("asdfg")){
+				return true;    
+			}
+			else{
+				response.getWriter().write("authentication wrong" );
+				//	 request.getRequestDispatcher("/blackIp.jsp").forward(request, response);  
+				return false;
+			}
 		}
 
 	}    
