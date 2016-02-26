@@ -2,31 +2,25 @@ package org.zt.ssmm.core;
 
 public class Returntype {
 
-    private String code;
+	private String code;
 
 	private String message;
-    private String data;
-    private Object a;
+	private Object data;
 
 
-	public Object getA() {
-		return a;
-	}
 
 
-	public void setA(Object a) {
-		this.a = a;
-	}
 
-
-	public String getData() {
+	public Object getData() {
 		return data;
 	}
 
 
-	public void setData(String data) {
+	public void setData(Object data) {
 		this.data = data;
 	}
+
+
 
 
 	public String getCode() {
