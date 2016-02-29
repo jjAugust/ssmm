@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  
 import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.service.UserService;
+
+import com.mysql.jdbc.StringUtils;
   
 
   
@@ -18,6 +20,25 @@ import org.zt.ssmm.service.UserService;
 public class IpInterceptor extends HandlerInterceptorAdapter{  
 	@Autowired
     private UserService us;
+	
+	public static String getIpAddr(HttpServletRequest request) {
+        String ip = request.getHeader("X-Real-IP");
+        if ( !"unknown".equalsIgnoreCase(ip)) {
+            return ip;
+        }
+        ip = request.getHeader("X-Forwarded-For");
+        if ( !"unknown".equalsIgnoreCase(ip)) {
+        // 多次反向代理后会有多个IP值，第一个为真实IP。
+        int index = ip.indexOf(',');
+            if (index != -1) {
+                return ip.substring(0, index);
+            } else {
+                return ip;
+            }
+        } else {
+             return request.getRemoteAddr();
+        }
+    }
   
     @Override    
     public boolean preHandle(HttpServletRequest request,    
@@ -27,9 +48,9 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
         String requestUri = request.getRequestURI();  
         String contextPath = request.getContextPath();  
         String url = requestUri.substring(contextPath.length());  
-        String ip=request.getRemoteAddr();
-        System.out.println(ip);  
-        System.out.println(url);  
+        String ip=getIpAddr(request);
+//        System.out.println(ip);  
+//        System.out.println(url);  
         
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 //        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
