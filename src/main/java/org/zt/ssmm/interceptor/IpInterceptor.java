@@ -28,8 +28,8 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
         String contextPath = request.getContextPath();  
         String url = requestUri.substring(contextPath.length());  
         String ip=request.getRemoteAddr();
-//        System.out.println(ip);  
-//        System.out.println(url);  
+        System.out.println(ip);  
+        System.out.println(url);  
         
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 //        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间

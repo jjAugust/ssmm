@@ -46,7 +46,7 @@
   </insert>
   
      <insert id="insertBlackIp" parameterType="org.zt.ssmm.core.Ip" >
-    insert into blackIp (ip,blackUrl,datetime)
+    insert into blackip (ip,blackUrl,datetime)
     values (#{ip},#{url},#{time})
   </insert>
   
