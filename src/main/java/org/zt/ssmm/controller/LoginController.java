@@ -18,12 +18,24 @@ public class LoginController {
 	private UserService us;
 	
 	@RequestMapping("/login2")
-	public String showUser(String id, HttpServletRequest req,HttpSession httpSession)
+	public String login2(String name,String password, HttpServletRequest req,HttpSession httpSession)
 	{
-		User u = us.getUserById(Integer.valueOf(id));
-		req.setAttribute("user", u);
+		User po=new User();
+		po.setName(name);
+		po.setPassword(password);
+		
+		
+		User u = us.selectByNamePWD(po);
+		if(u==null){
+
+			  return "jsp/error";
+		}
+		else{
+			req.setAttribute("user", u);
+			  httpSession.setAttribute("id", u.getId()); 
 		  httpSession.setAttribute("username", u.getName());  
-		return "showUser";
+		  return "zyq";
+		}
 	}
 	
 	@RequestMapping("/login")
@@ -37,13 +49,13 @@ public class LoginController {
 		User u = us.selectByNamePWD(po);
 		if(u==null){
 
-			  return "error";
+			  return "jsp/error";
 		}
 		else{
 			req.setAttribute("user", u);
 			  httpSession.setAttribute("id", u.getId()); 
 		  httpSession.setAttribute("username", u.getName());  
-		  return "showUser";
+		  return "jsp/showUser";
 		}
 	}
 	
