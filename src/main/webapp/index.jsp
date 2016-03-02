@@ -247,7 +247,7 @@ font-size: 13px;
 <h1>Log in with awesome new thing</h1>
 
 
-<form  action="/ssmm/loginController/login2.do" method="post">
+<form  action="/loginController/login2.do" method="post">
 <input type="text" name="name" placeholder="username or email" value="" required>
 <input type="password" name="password" placeholder="password" value="" required>
 <button type="submit"><i class="fa fa-arrow-right"></i></button>

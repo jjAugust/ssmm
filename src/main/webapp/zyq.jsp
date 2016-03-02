@@ -11,12 +11,12 @@
 		<script src="../js/jquery.poptrox-2.1.js"></script>
 		<script src="../js/config.js"></script>
 		<script src="../js/skel.min.js"></script>
-
+		<noscript>
 			<link rel="stylesheet" href="../css/skel-noscript.css" />
 			<link rel="stylesheet" href="../css/style.css" />
 			<link rel="stylesheet" href="../css/style-desktop.css" />
 			<link rel="stylesheet" href="../css/style-noscript.css" />
-
+		</noscript>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="../css/ie8.css" />
 		<![endif]-->
 	</head>
