@@ -141,14 +141,14 @@ public class UserController
 			//	请求地址
 			HttpUriRequest	httpGet	=	RequestBuilder
 					.get("https://ca.aliyuncs.com/gw/alidayu/sendSms")
-					.addHeader("X-Ca-Key",	"appKey")
-					.addHeader("X-Ca-Secret",	"appSecret")
-					.addParameter("rec_num","13000000000")
-					.addParameter("sms_template_code",	"SMS_100000")
+					.addHeader("X-Ca-Key",	"23319457")
+					.addHeader("X-Ca-Secret",	"7842efe3a550fe024dc56dbf59b40f3b")
+					.addParameter("rec_num","13221000758")
+					.addParameter("sms_template_code",	"SMS_5420454")
 					.addParameter("sms_free_sign_name",	"登录验证")
 					.addParameter("sms_type",	"normal")
 					.addParameter("extend",	"1234")
-					.addParameter("sms_param",	"{'code':'1234','product':'alidayu'}")
+					.addParameter("sms_param",	"{'code':'1234','product':'junjie'}")
 					.build();
 			//	TODO	设置请求超时时间
 			//	处理请求结果
