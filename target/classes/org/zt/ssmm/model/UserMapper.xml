@@ -55,8 +55,8 @@
   </select>
   
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
-    insert into user (name,password)
-    values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR})
+    insert into user (name,password,birthdate,occupation)
+    values (#{name,jdbcType=CHAR}, #{password,jdbcType=CHAR},#{birthdate},#{occupation})
   </insert>
   <insert id="insertSelective" parameterType="org.zt.ssmm.core.User" >
     insert into user

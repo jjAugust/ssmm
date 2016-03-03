@@ -1,5 +1,7 @@
 package org.zt.ssmm.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,14 +73,17 @@ public class UserController
 	
 	@RequestMapping("/addUser")
     @ResponseBody  
-	public Object addUser(String name,String password, HttpServletRequest req)
+	public Object addUser(String name,String password,String birthdate,String occupation, HttpServletRequest req) throws ParseException
 	{
 
-
+SimpleDateFormat f=new SimpleDateFormat("yyyy-mm-dd"); 
 		 Returntype text=new Returntype();
 		User role = new User();
 		role.setName(name);
 		role.setPassword(password);
+		role.setBirthdate(f.parse(birthdate));
+		role.setOccupation(occupation);
+		
 		//先查询是否已用了该登录名 否则需提示
 		Integer j=0;
 		j=us.selectUser(name);

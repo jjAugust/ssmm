@@ -9,8 +9,18 @@ public class User {
     private String name;
 
     private String password;
+    
+    private String occupation;
 
-    private Date birthdate;
+    public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	private Date birthdate;
     
     private List<Role> roles;
     

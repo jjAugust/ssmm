@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 
-
 /* ----------------- Reset all styles ----------------- */
 *{
 	margin:0;
 	padding:0;
 	border:0;
 }
+
 
 /* ----------------- Website background and general text colour ----------------- */
 body{
@@ -16,7 +16,6 @@ body{
 	color:#2d2d2d;
 }
 
-
 /* ----------------- Wrapper - keeps all content in the center of page -----------------  */
 .wrapper{
 	margin:auto;
@@ -24,8 +23,8 @@ body{
 	height:auto;
 }
 
-
 /* The rest is pretty self explanatory - it appears in the order that it occurs on the HTML document */
+
 #top{
 	height:40px;
 }
@@ -108,110 +107,43 @@ header{
 
 header h1{
 	font-family: Lato, Arial, Helvetica, sans-serif;
-	text-align:center;
-	font-size:140%;
+	font-size:210%;
 	font-weight:normal;
 	letter-spacing:1px;
-	margin-bottom:1%;
-}
-
-header h1 span{
-	color:#f38094;
-	text-shadow: 0 1px 1px #dadada;
 }
 
 header h2{
 	font-family: Lato, Arial, Helvetica, sans-serif;
-	text-align:center;
 	font-size:100%;
 	font-weight:normal;
+	color:#f38094;
 }
-	
-#slideshow{
+
+header p{
+	font-family: Lato, Arial, Helvetica, sans-serif;
+	font-size:90%;
+	font-weight:normal;
+	margin-top:2%;
+}
+		
+#workbody{
 	width:100%;
 	margin-top:2%;
 }
 
-
-/* - - - - - - - - - - - - - - -  Slider START  - - - - - - - - - - - - - - - */
-
-.html_carousel {
-}
-.html_carousel div.slide {
-	position: relative;
-}	
-.html_carousel div.slide img {
-	width: 100%;
-	height: auto;
-	-webkit-box-shadow: 0 1px 1px #c1c1c1;
-    -moz-box-shadow: 0 1px 1px #c1c1c1;
-    box-shadow: 0 1px 1px #c1c1c1;
+#workbody img{
+	width:100%;
 	border-radius:15px;
 }
 
-.clearfix {
-	float: none;
-	clear: both;
-}
-
-/* - - - - - - - - - - - - - - -  Slider END  - - - - - - - - - - - - - - - */
-
-.left{
-	margin-top:4%;
-	width:48%;
-	float:left;
-	margin-bottom:2%;
-}
-
-.left h3{
-	font-family:Cookie, Arial, Helvetica, sans-serif;
-	font-size:180%;
+#workbody h5{
+	border-radius:0 0 15px 15px;
+	font-family: Lato, Arial, Helvetica, sans-serif;
+	font-size:15px;
 	font-weight:normal;
-	text-align:center;
-	color:#f38094;
-	margin-bottom:5%;
-	text-shadow: 0 1px 1px #dadada;
+	color:#2d2d2d;
+	margin:10px 0 6% 5px;
 }
-
-.left p{
-	font-family:Lato, Arial, Helvetica, sans-serif;
-	font-size:100%;
-	line-height:140%;
-}
-
-.left p a{
-	color:#f38094;
-	text-decoration:none;
-}
-	
-.right{
-	margin-top:4%;
-	width:48%;
-	float:right;
-	margin-bottom:2%;
-}
-
-.right h3{
-	font-family:Cookie, Arial, Helvetica, sans-serif;
-	font-size:180%;
-	font-weight:normal;
-	text-align:center;
-	color:#f38094;
-	margin-bottom:5%;
-	text-shadow: 0 1px 1px #dadada;
-}
-
-.right p{
-	font-family:Lato, Arial, Helvetica, sans-serif;
-	font-size:100%;
-	line-height:140%;
-}
-
-.right p a{
-	color:#f38094;
-	text-decoration:none;
-}
-
 
 /* ----------------------- WORK LINKS START ------------------------- */
 #work{
@@ -257,7 +189,6 @@ header h2{
 	-o-transition: opacity 0.2s ease-in-out;
 	-ms-transition: opacity 0.2s ease-in-out;
 	transition: opacity 0.2s ease-in-out;
-	
 }
 
 .item img:hover{
@@ -287,9 +218,8 @@ header h2{
 	color:#f38094;
 	text-decoration:none;
 }
+
 /* ----------------------- WORK LINKS END ------------------------- */
-
-
 #bottom h3{
 	margin:4% 0 3% 0;
 	font-family:Cookie, Arial, Helvetica, sans-serif;
@@ -300,32 +230,32 @@ header h2{
 	text-shadow: 0 1px 1px #c1c1c1;
 }
 
-
 footer{
 	width:100%;
 	padding:10px 0;
 	background-color:#2d2d2d;
 }
 
-.icon{
-	float:right;
-	width:32px;
-	margin:95px 0 2px 4%;
-	opacity:0.85;
+.left{
+	margin-top:4%;
+	width:48%;
+	float:left;
+	margin-bottom:2%;
 }
 
-.icon:hover{
-	opacity:1;
-}
-
-.social{
+.left h3{
+	font-family:Cookie, Arial, Helvetica, sans-serif;
+	font-size:180%;
+	font-weight:normal;
+	text-align:center;
 	color:#f38094;
+	margin-bottom:5%;
+	text-shadow: 0 1px 1px #dadada;
 }
 
+/* ----------------------------- CONTACT FORM START ----------------------------------- */
 
-/* ----------------------------- FORM ----------------------------------- */
-
-.left h4{
+.contacttitle{
 	font-family:Cookie, Arial, Helvetica, sans-serif;
 	font-size:180%;
 	font-weight:normal;
@@ -407,7 +337,47 @@ input:focus, input.focused, textarea:focus, textarea.focused {  color: #3e3e3e; 
 	list-style-type: none;
 	padding-top:5px;
 }
+
+/* ----------------------------- CONTACT FORM END ----------------------------------- */
 	
+.right{
+	margin-top:4%;
+	width:48%;
+	float:right;
+	margin-bottom:2%;
+}
+
+.right p{
+	font-family:Lato, Arial, Helvetica, sans-serif;
+	font-size:100%;
+	line-height:140%;
+}
+
+.icon{
+	float:right;
+	width:32px;
+	margin:95px 0 2px 4%;
+	opacity:0.85;
+}
+
+.icon:hover{
+	opacity:1;
+}
+
+.social{
+	color:#f38094;
+}
+
+.social p{
+	float:right;
+	letter-spacing:1px;
+	margin:98px 0 0 0;
+}
+
+.clearfix {
+	float: none;
+	clear: both;
+}
 
 /* -- Make the highlight colours pretty -- */
 ::selection      { background:#f38094; color:#FFF;}
@@ -416,7 +386,9 @@ input:focus, input.focused, textarea:focus, textarea.focused {  color: #3e3e3e; 
 
 
 
+
 /* ---------------------- RESPONSIVE STUFF - ONLY TOUCH IF YOUR'E CONFIDENT WITH CSS ---------------------- */
+
 
 
 @media only screen and (max-width: 1279px) {
@@ -483,11 +455,11 @@ input:focus, input.focused, textarea:focus, textarea.focused {  color: #3e3e3e; 
 
 @media only screen and (max-width: 860px) {
 	header h1{
-		font-size:110%;
+		font-size:160%;
 	}
 	
 	header h2{
-		font-size:80%;
+		font-size:100%;
 	}
 }
 
@@ -505,12 +477,12 @@ input:focus, input.focused, textarea:focus, textarea.focused {  color: #3e3e3e; 
 	}
 	
 	header h1{
-		font-size:100%;
-		margin-bottom:5%;
+		font-size:140%;
 	}
 	
 	header h2{
-		font-size:60%;
+		font-size:70%;
+		margin-bottom:5%;
 	}
 	
 	.left{
@@ -562,6 +534,4 @@ input:focus, input.focused, textarea:focus, textarea.focused {  color: #3e3e3e; 
 	}
 }
 
-
-	
-	
+/* ------- END :) ------- */

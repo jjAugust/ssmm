@@ -210,7 +210,7 @@ transition:0.5s ease;
 {
 float:left;
 width:250px;
-height:250px;
+height:170px;
 padding:10px 15px;
 position:relative;
 background:#555555;
@@ -244,16 +244,19 @@ line-height:38px;
 font-size: 13px;
 }
 </style></head><body>
-
+<div id="loginform">
+<div id="facebook"><i class="fa fa-facebook"></i><div id="connect">Connect with Facebook</div></div>
 <div id="mainlogin">
+<div id="or">or</div>
+<h1>Log in with awesome new thing</h1>
 
-<form  action="/userController/addUser.do" method="post">
+
+<form  action="/loginController/login2.do" method="post">
 <input type="text" name="name" placeholder="username or email" value="" required>
 <input type="password" name="password" placeholder="password" value="" required>
-<input type="date" name="birthdate" placeholder="birthday" value="" required>
-<input type="text" name="occupation" placeholder="occupation" value="" required>
 <button type="submit"><i class="fa fa-arrow-right"></i></button>
 </form>
+<div id="note"><a href="#">Forgot your password?</a></div>
 </div>
 </div>
 </body></html>

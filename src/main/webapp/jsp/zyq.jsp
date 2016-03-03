@@ -6,17 +6,23 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath %>" />
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300" rel="stylesheet" type="text/css" />
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/jquery.poptrox-2.1.js"></script>
-		<script src="../js/config.js"></script>
-		<script src="../js/skel.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox-2.1.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="../css/skel-noscript.css" />
-			<link rel="stylesheet" href="../css/style.css" />
-			<link rel="stylesheet" href="../css/style-desktop.css" />
-			<link rel="stylesheet" href="../css/style-noscript.css" />
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
 		</noscript>
+		
+			<link rel="stylesheet" href="css/zyqindex/style_zyq.css" />
+			<link rel="stylesheet" href="css/zyqindex/style-desktop.css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="../css/ie8.css" />
 		<![endif]-->
 	</head>

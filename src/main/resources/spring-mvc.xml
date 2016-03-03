@@ -53,7 +53,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
     <mvc:interceptor>    
         <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->  
         <mvc:mapping path="/" />  
-            <mvc:mapping path="/userController/**" />  
+            <mvc:mapping path="/userController/showUser" />  
+            <mvc:mapping path="/userController/showUser1" />  
+            <mvc:mapping path="/userController/test" />  
         
         <bean class="org.zt.ssmm.interceptor.CommonInterceptor"/>       
     </mvc:interceptor>  

@@ -34,7 +34,7 @@ public class LoginController {
 			req.setAttribute("user", u);
 			  httpSession.setAttribute("id", u.getId()); 
 		  httpSession.setAttribute("username", u.getName());  
-		  return "zyq";
+		  return "jsp/zyqindex";
 		}
 	}
 	
