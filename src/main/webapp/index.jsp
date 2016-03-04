@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html><html class=''>
 <head><meta charset='UTF-8'>
 		<%
@@ -5,6 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <base href="<%=basePath %>" />
+		<script src="js/jquery.min.js"></script>
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'>
 <style class="cp-pen-styles">*
 {
@@ -246,8 +248,26 @@ font-size: 13px;
 </style></head><body>
 
 <div id="mainlogin">
-
-<form  action="/userController/addUser.do" method="post">
+<script type="text/javascript">
+    function changeImg() {
+        var imgSrc = $("#imgObj");
+        var src = imgSrc.attr("src");
+        imgSrc.attr("src", chgUrl(src));
+    }
+    //时间戳   
+    //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳   
+    function chgUrl(url) {
+        var timestamp = (new Date()).valueOf();
+        url = url.substring(0, 17);
+        if ((url.indexOf("&") >= 0)) {
+            url = url + "×tamp=" + timestamp;
+        } else {
+            url = url + "?timestamp=" + timestamp;
+        }
+        return url;
+    }
+</script>
+<form  action="userController/addUser.do" method="post">
 <input type="text" name="name" placeholder="username or email" value="" required>
 <input type="password" name="password" placeholder="password" value="" required>
 <input type="date" name="birthdate" placeholder="birthday" value="" required>

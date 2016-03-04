@@ -2,7 +2,6 @@ package org.zt.ssmm.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,7 +16,6 @@ import org.zt.ssmm.core.User;
 import org.zt.ssmm.service.UserService;
 import org.zt.ssmm.util.ReturnUtil;
 
-import	java.io.IOException;
 import	java.io.IOException;
 
 import	org.apache.http.HttpEntity;
@@ -85,7 +83,7 @@ public class UserController
 
 	@RequestMapping("/addUser")
 	@ResponseBody  
-	public Object addUser(String name,String password,String birthdate,String occupation, HttpServletRequest req) throws ParseException
+	public Object addUser(String name,String password,String birthdate,String occupation, String code, HttpServletRequest req,HttpSession session) throws ParseException
 	{
 
 		SimpleDateFormat f=new SimpleDateFormat("yyyy-mm-dd"); 
@@ -105,6 +103,11 @@ public class UserController
 		}
 
 		else{
+		        if (!(code.equalsIgnoreCase(session.getAttribute("code").toString()))) {  //忽略验证码大小写
+		        	ReturnUtil.fix(text,"_KEYS_f05");
+					return text;  
+		        }
+			
 			Integer i=0;
 			i=us.insertUserAndPassword(role);
 			if(i==1){

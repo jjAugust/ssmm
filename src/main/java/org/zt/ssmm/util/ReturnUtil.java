@@ -19,6 +19,7 @@ public class ReturnUtil {
 			put("_KEYS_f02","f02&name already exist");
 			put("_KEYS_f03","f03&添加失败");
 			put("_KEYS_f04","f04&删除失败");
+			put("_KEYS_f05","f05&验证码错误");
 		}};
 		public static void fix(Returntype text,String code)
 		{
