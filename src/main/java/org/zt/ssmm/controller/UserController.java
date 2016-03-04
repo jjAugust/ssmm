@@ -16,8 +16,8 @@ import org.zt.ssmm.core.Returntype;
 import org.zt.ssmm.core.User;
 import org.zt.ssmm.service.UserService;
 import org.zt.ssmm.util.ReturnUtil;
-import	java.io.IOException;
 
+import	java.io.IOException;
 import	java.io.IOException;
 
 import	org.apache.http.HttpEntity;
@@ -137,6 +137,9 @@ public class UserController
 	@ResponseBody  
 	public	static	void	main(String	args[])	{
 		CloseableHttpClient	httpClient	=	HttpClients.createDefault();
+		Integer i=(int) Math.round(Math.random()*9000+1000);
+		String str="{'code':'"+i.toString()+"','product':'乐活'}";
+		
 		try	{
 			//	请求地址
 			HttpUriRequest	httpGet	=	RequestBuilder
@@ -145,10 +148,10 @@ public class UserController
 					.addHeader("X-Ca-Secret",	"7842efe3a550fe024dc56dbf59b40f3b")
 					.addParameter("rec_num","13221000758")
 					.addParameter("sms_template_code",	"SMS_5420454")
-					.addParameter("sms_free_sign_name",	"登录验证")
+					.addParameter("sms_free_sign_name",	"注册验证")
 					.addParameter("sms_type",	"normal")
 					.addParameter("extend",	"1234")
-					.addParameter("sms_param",	"{'code':'1234','product':'junjie'}")
+					.addParameter("sms_param",	str)
 					.build();
 			//	TODO	设置请求超时时间
 			//	处理请求结果

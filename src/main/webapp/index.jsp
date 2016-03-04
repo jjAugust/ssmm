@@ -252,6 +252,9 @@ font-size: 13px;
 <input type="password" name="password" placeholder="password" value="" required>
 <input type="date" name="birthdate" placeholder="birthday" value="" required>
 <input type="text" name="occupation" placeholder="occupation" value="" required>
+<td>验证码</td><td><input id="index_code" name="code" type="text" /></td>
+       <td> <img id="imgObj" alt="验证码" src="code.do" />
+        <a href="#" onclick="changeImg()">换一张</a></td></tr>
 <button type="submit"><i class="fa fa-arrow-right"></i></button>
 </form>
 </div>
