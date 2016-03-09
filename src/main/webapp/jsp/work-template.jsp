@@ -23,7 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- END OF Website description -->
 
 <!-- DON'T TOUCH THIS SECTION -->
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Cookie' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/zyqindex/work.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.carouFredSel-5.5.2.js" type="text/javascript"></script>

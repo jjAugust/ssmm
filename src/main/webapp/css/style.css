@@ -177,6 +177,7 @@ header h2{
 	font-family:Lato, Arial, Helvetica, sans-serif;
 	font-size:100%;
 	line-height:140%;
+	color: #F38094;
 }
 
 .left p a{
@@ -270,7 +271,7 @@ header h2{
 	font-size:105%;
 	font-weight:normal;
 	padding:5px 0 0 8px;
-	color:#2d2d2d;
+	color:#F38094;
 	text-decoration:none;
 }
 
@@ -284,7 +285,8 @@ header h2{
 	font-size:70%;
 	font-weight:normal;
 	padding:0 0 0 8px;
-	color:#f38094;
+	color:#FBF0F2;
+	background-color: #F38094;
 	text-decoration:none;
 }
 /* ----------------------- WORK LINKS END ------------------------- */

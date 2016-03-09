@@ -23,7 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- END OF Website description -->
 
 <!-- DON'T TOUCH THIS SECTION -->
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Cookie' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/zyqindex/style.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/jquery.carouFredSel-5.5.2.js" type="text/javascript"></script>
@@ -64,7 +63,7 @@ app.controller('customersCtrl', function($scope, $http) {
     
     
     <header>    <!-- Header Title Start -->
-        <h1>Hello there, I'm <span>&quot;${user.name}&quot;</span>. Welcome to my design portfolio!</h1>
+        <h1><img  src="images/logo.png" alt="logo">&nbsp;&nbsp;Hello there, I'm <span>&quot;${user.name}&quot;</span>. Welcome to my design portfolio!&nbsp;&nbsp;<img src="images/logo.png" alt="logo"></h1>
         <h2>&ndash; Photographer and chinese teacher &ndash;</h2>
     </header>   <!-- Header Title End -->
     <section id="slideshow">    <!-- Slideshow Start -->
