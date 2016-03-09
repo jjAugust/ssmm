@@ -275,7 +275,6 @@ var wait=60;
     function add(){
     // document.ceshi.action="userController/addUser.do";
     // document.ceshi.submit();
-
     $.ajax({
         url: "userController/addUser.do", 
         data: {name:$("#name").val(), password: $("#password").val(),birthdate:$("#birthdate").val(),occupation:$("#occupation").val(),code:$("#index_code").val(),telcode:$("#telcode").val(),phone:$("#phone").val()},
@@ -291,15 +290,28 @@ var wait=60;
             } 
         }
     });
+
 }
 
 function sendtelcode(){
+  var ptoday=0;
+
 
     var partten = /^1[3,5,8]\d{9}$/;
     var fl=false;
     if(partten.test($("#phone").val()))
     {
-      $.ajax({
+
+        $.ajax({
+        url: "userController/checkphone.do", 
+        data: {telcode:$("#phone").val()},
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        success: function (data) { 
+            ptoday=data.data;
+if(ptoday<3){
+     $.ajax({
         url: "userController/sendSms.do", 
         data: {telcode:$("#phone").val()},
         type: "GET",
@@ -309,6 +321,13 @@ function sendtelcode(){
             alert("发送成功");
         }
     });
+}
+else{
+    alert('今天已超过次数');
+}
+        }
+    });
+     
   }
   else
   {

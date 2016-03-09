@@ -140,11 +140,22 @@ public class UserController
 		text.setData(u);
 		return text;  
 	}
+	
+	@RequestMapping("/checkphone")
+	@ResponseBody  
+	public Object checkPhone(String telcode, HttpServletRequest req)
+	{
+		int u = us.selectPhoneToday(telcode);
+		Returntype text=new Returntype();
+		ReturnUtil.fix(text,"_KEYS_s04");
+		text.setData(u);
+		return text;  
+	}
 
 
 	@RequestMapping("/sendSms")
 	@ResponseBody  
-	public	static	void	main(String	args[],String telcode,HttpServletRequest req)	{
+	public		void	main(String	args[],String telcode,HttpServletRequest req)	{
 		CloseableHttpClient	httpClient	=	HttpClients.createDefault();
 		Integer i=(int) Math.round(Math.random()*9000+1000);
 		String str="{'code':'"+i.toString()+"','product':'乖乖博客'}";
@@ -179,6 +190,7 @@ public class UserController
 			};
 			//	发起 API 调用
 			String	responseBody	=	httpClient.execute(httpGet,	responseHandler);
+			us.insertPhoneToday(telcode);
 			System.out.println(responseBody);
 		}	catch	(Exception	e)	{
 			e.printStackTrace();

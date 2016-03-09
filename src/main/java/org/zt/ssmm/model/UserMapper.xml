@@ -52,10 +52,19 @@
     values (#{ip},#{url},#{time})
   </insert>
   
+       <insert id="insertPhoneToday" parameterType="java.lang.String" >
+    insert into su_phone_time (phoneNum,time)
+    values (#{phoneNum},curdate())
+  </insert>
+  
+  
    <select id="selectBlackIp" resultType="java.lang.Integer" parameterType="org.zt.ssmm.core.Ip" >
   select count(1) from blackip t where t.ip=#{ip} and LEFT(t.datetime,10)=LEFT(#{time},10);
   </select>
   
+     <select id="selectPhoneToday" resultType="java.lang.Integer" parameterType="java.lang.String" >
+  select count(1) from su_phone_time t where t.phoneNum=#{phoneNum} and t.time=curdate();
+  </select>
   
   <select id="getUserdatabyid" resultType="org.zt.ssmm.core.Userdata" parameterType="java.lang.String" >
   select * from userData t where t.userId=#{Userid};

@@ -73,6 +73,19 @@ public class UserServiceImpl implements UserService
 	}
 	
 	@Override
+	public int 	insertPhoneToday(String phone)
+	{
+		return userMapper.insertPhoneToday(phone);
+	}
+
+	
+	@Override
+	public int selectPhoneToday(String phone) 
+	{
+		return userMapper.selectPhoneToday(phone);
+	}
+	
+	@Override
 	public User selectByNamePWD(User info) 
 	{
 		return userMapper.selectByNamePWD(info);

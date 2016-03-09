@@ -20,6 +20,8 @@ public interface UserService
 	int insertIpinfo(Ip info);
 	User selectByNamePWD(User role);
 	int selectIpOneSecond(Ip info);
+	int selectPhoneToday(String phone);
+	int insertPhoneToday(String phone);
 	int insertBlackIp(Ip info);
 	int selectBlackIp(Ip info);
 //	Integer deleteUserAndPassword(Integer valueOf);

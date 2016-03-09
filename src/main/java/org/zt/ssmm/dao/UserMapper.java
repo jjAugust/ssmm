@@ -25,8 +25,11 @@ public interface UserMapper {
     
     List<User> getAllUsersWithRole();
     int selectUser(String name);
+    int selectPhoneToday(String phoneNum);
     int insertIpinfo(Ip info);
     int insertBlackIp(Ip info);
+    int insertPhoneToday(String phoneNum);
+    
     User selectByNamePWD(User role);
     int selectIpOneSecond(Ip info);
     int selectBlackIp(Ip info);

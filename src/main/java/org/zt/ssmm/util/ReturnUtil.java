@@ -15,6 +15,7 @@ public class ReturnUtil {
 			put("_KEYS_s01","s01&成功登陆");
 			put("_KEYS_s02","s02&添加成功");
 			put("_KEYS_s03","s02&删除成功");
+			put("_KEYS_s04","s04&成功查询");
 			put("_KEYS_f01","f01&失败");
 			put("_KEYS_f02","f02&name already exist");
 			put("_KEYS_f03","f03&添加失败");
