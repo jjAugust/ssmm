@@ -11,7 +11,7 @@ import org.zt.ssmm.core.Returntype;
 public class ReturnUtil {
 
 	static Map<String,String> mapty = new HashMap<String,String>(){
-		{
+		{ 
 			put("_KEYS_s01","s01&成功登陆");
 			put("_KEYS_s02","s02&添加成功");
 			put("_KEYS_s03","s02&删除成功");
@@ -20,6 +20,7 @@ public class ReturnUtil {
 			put("_KEYS_f03","f03&添加失败");
 			put("_KEYS_f04","f04&删除失败");
 			put("_KEYS_f05","f05&验证码错误");
+			put("_KEYS_f06","f06&手机验证码错误");
 		}};
 		public static void fix(Returntype text,String code)
 		{

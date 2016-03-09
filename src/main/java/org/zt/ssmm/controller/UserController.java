@@ -83,7 +83,7 @@ public class UserController
 
 	@RequestMapping("/addUser")
 	@ResponseBody  
-	public Object addUser(String name,String password,String birthdate,String occupation, String code, HttpServletRequest req,HttpSession session) throws ParseException
+	public Object addUser(String name,String password,String birthdate,String occupation, String code, String phone, HttpServletRequest req,HttpSession session,String telcode) throws ParseException
 	{
 
 		SimpleDateFormat f=new SimpleDateFormat("yyyy-mm-dd"); 
@@ -93,6 +93,7 @@ public class UserController
 		role.setPassword(password);
 		role.setBirthdate(f.parse(birthdate));
 		role.setOccupation(occupation);
+		role.setPhone(phone);
 
 		//先查询是否已用了该登录名 否则需提示
 		Integer j=0;
@@ -107,7 +108,11 @@ public class UserController
 		        	ReturnUtil.fix(text,"_KEYS_f05");
 					return text;  
 		        }
-			
+		        else if(!(telcode.equalsIgnoreCase(session.getAttribute("telcode").toString()))){
+		        	ReturnUtil.fix(text,"_KEYS_f06");
+					return text;  
+		        }
+		        else{
 			Integer i=0;
 			i=us.insertUserAndPassword(role);
 			if(i==1){
@@ -119,6 +124,7 @@ public class UserController
 				ReturnUtil.fix(text,"_KEYS_f03");
 				return text;  
 			}
+		        }
 		}
 	}
 
@@ -138,18 +144,22 @@ public class UserController
 
 	@RequestMapping("/sendSms")
 	@ResponseBody  
-	public	static	void	main(String	args[])	{
+	public	static	void	main(String	args[],String telcode,HttpServletRequest req)	{
 		CloseableHttpClient	httpClient	=	HttpClients.createDefault();
 		Integer i=(int) Math.round(Math.random()*9000+1000);
-		String str="{'code':'"+i.toString()+"','product':'乐活'}";
+		String str="{'code':'"+i.toString()+"','product':'乖乖博客'}";
 		
+		HttpSession session = req.getSession();
+        session.setAttribute("telcode", i.toString());
+        System.out.println(i.toString());
+        
 		try	{
 			//	请求地址
 			HttpUriRequest	httpGet	=	RequestBuilder
 					.get("https://ca.aliyuncs.com/gw/alidayu/sendSms")
 					.addHeader("X-Ca-Key",	"23319457")
 					.addHeader("X-Ca-Secret",	"7842efe3a550fe024dc56dbf59b40f3b")
-					.addParameter("rec_num","13221000758")
+					.addParameter("rec_num",telcode)
 					.addParameter("sms_template_code",	"SMS_5420454")
 					.addParameter("sms_free_sign_name",	"注册验证")
 					.addParameter("sms_type",	"normal")

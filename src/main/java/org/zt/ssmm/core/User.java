@@ -9,8 +9,9 @@ public class User {
     private String name;
 
     private String password;
-    
+
     private String occupation;
+    private String phone;
 
     public String getOccupation() {
 		return occupation;
@@ -63,4 +64,12 @@ public class User {
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

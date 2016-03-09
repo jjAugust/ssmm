@@ -1,13 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE html><html class=''>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><!DOCTYPE html><html class=''>
 <head><meta charset='UTF-8'>
 		<%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <base href="<%=basePath %>" />
-		<script src="js/jquery.min.js"></script>
-<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'>
+<link rel='stylesheet prefetch' href='css/font-awesome.css'>
 <style class="cp-pen-styles">*
 {
 margin:0px;
@@ -156,7 +154,7 @@ text-align:center;
 float:left;
 background:#365195;
 padding:35px 10px 20px 10px;
-width:170px;
+/*width:170px;*/
 height:135px; 
 border-radius:3px;
 cursor:pointer;
@@ -212,7 +210,7 @@ transition:0.5s ease;
 {
 float:left;
 width:250px;
-height:250px;
+height:170px;
 padding:10px 15px;
 position:relative;
 background:#555555;
@@ -245,38 +243,24 @@ font-weight:bold;
 line-height:38px;
 font-size: 13px;
 }
-</style></head><body>
 
+.fa-facebook:before {
+  content: "注册";
+}
+</style></head><body>
+<div id="loginform">
+<div id="facebook" onclick="self.location='jsp/signup.jsp';"><i class="fa fa-facebook"></i><div id="connect"><center>sign up</center></div></div>
 <div id="mainlogin">
-<script type="text/javascript">
-    function changeImg() {
-        var imgSrc = $("#imgObj");
-        var src = imgSrc.attr("src");
-        imgSrc.attr("src", chgUrl(src));
-    }
-    //时间戳   
-    //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳   
-    function chgUrl(url) {
-        var timestamp = (new Date()).valueOf();
-        url = url.substring(0, 17);
-        if ((url.indexOf("&") >= 0)) {
-            url = url + "×tamp=" + timestamp;
-        } else {
-            url = url + "?timestamp=" + timestamp;
-        }
-        return url;
-    }
-</script>
-<form  action="userController/addUser.do" method="post">
+<div id="or">or</div>
+<h1>Log in with awesome new thing</h1>
+
+
+<form  action="/loginController/login2.do" method="post">
 <input type="text" name="name" placeholder="username or email" value="" required>
 <input type="password" name="password" placeholder="password" value="" required>
-<input type="date" name="birthdate" placeholder="birthday" value="" required>
-<input type="text" name="occupation" placeholder="occupation" value="" required>
-<td>验证码</td><td><input id="index_code" name="code" type="text" /></td>
-       <td> <img id="imgObj" alt="验证码" src="code.do" />
-        <a href="#" onclick="changeImg()">换一张</a></td></tr>
 <button type="submit"><i class="fa fa-arrow-right"></i></button>
 </form>
+<div id="note"><a href="#">Forgot your password?</a></div>
 </div>
 </div>
 </body></html>
