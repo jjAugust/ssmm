@@ -212,7 +212,7 @@
     {
         float:left;
         width:250px;
-        height:430px;
+        height:460px;
         padding:10px 15px;
         position:relative;
         background:#555555;
@@ -269,6 +269,9 @@
     </script>
 
     <script type="text/javascript">
+
+var wait=60; 
+
     function add(){
     // document.ceshi.action="userController/addUser.do";
     // document.ceshi.submit();
@@ -310,10 +313,25 @@ function sendtelcode(){
   else
   {
     alert('请输入正确的手机号码');
+    wait=0;
  }
 }
 
-
+function time(o) { 
+        if (wait == 0) { 
+            o.removeAttribute("disabled");           
+            o.value="免费获取验证码"; 
+            wait = 60; 
+        } else { 
+            o.setAttribute("disabled", true); 
+            o.value=wait+"秒后可以重新发送"; 
+            wait--; 
+            setTimeout(function() { 
+                time(o) 
+            }, 
+            1000) 
+        } 
+    } 
 </script>
 <form  action="" method="post">
     <!-- <form  name="ceshi" method="post"> -->
@@ -324,7 +342,10 @@ function sendtelcode(){
     <input type="date" id="birthdate" name="birthdate" placeholder="birthday" value="" required>
     <input type="text" id="occupation" name="occupation" placeholder="occupation" value="" required>
     <input type="text" id="telcode" name="telcode" placeholder="手机验证码" value="" required>
-    <a onclick="sendtelcode();">点击发送验证码</a>
+
+    <!-- <a onclick="">点击发送验证码</a> -->
+<input type="button" id="btn" onclick="time(this);sendtelcode();" value="点击获取验证码" /> 
+
     <input id="index_code" name="code" type="text" placeholder="验证码" />
     <td> <img id="imgObj" alt="验证码" src="code.do" />
         <a  onclick="changeImg()">换一张</a></td></tr>

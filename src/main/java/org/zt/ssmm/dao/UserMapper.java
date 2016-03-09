@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.core.User;
+import org.zt.ssmm.core.Userdata;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
@@ -20,6 +21,7 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
     
     List<User> getAllUsers();
+    Userdata getUserdatabyid(String Userid);
     
     List<User> getAllUsersWithRole();
     int selectUser(String name);

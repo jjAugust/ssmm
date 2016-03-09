@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <base href="<%=basePath %>" />
 <!-- Website Title -->
-<title>Liquid Gem</title>
+
 <!-- END OF Website Title -->
 
 <!--  Website description - Change the 'content' section to whatever you want -->
@@ -30,126 +30,134 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script> 
 <script type="text/javascript" src="js/scripts.js"></script> 
+<script type="text/javascript" src="js/angular.js"></script> 
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("/dataController/getinfo.do?id=15")
+    .success(function(response) {$scope.names = response.data;});
+});
+</script>
 </head>
 <!-- END OF DON'T TOUCH -->
-
-<body>
+<title ></title>
+<body ng-app="myApp" ng-controller="customersCtrl">
 <div class="wrapper">
-	<div id="top">
+    <div id="top">
         <div id="logo">
-            <img id="logoimage" src="images/logo.png" alt="logo">	<!-- Logo image -->
-            <h1 id="logotitle">liquid gem</h1>	<!-- Logo text -->
+            <img id="logoimage" src="images/logo.png" alt="logo">   <!-- Logo image -->
+            <h1 id="logotitle">{{names.sTitle}}</h1>    <!-- Logo text -->
         </div><!--/logo-->
     
-        <nav>	<!-- Navigation Start -->
+        <nav>   <!-- Navigation Start -->
             <ul>
-            	<li><a href="#top">HOME</a></li>
+                <li><a href="#top">HOME</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#footer">Contact</a></li>
             </ul>      
-        </nav>	<!-- Navigation End -->
+        </nav>  <!-- Navigation End -->
     </div><!--/top-->
     
     
     <hr/><!-- Horizontal Line -->
     
     
-    <header>	<!-- Header Title Start -->
-    	<h1>Hello there, I'm <span>&quot;${user.name}&quot;</span>. Welcome to my design portfolio!</h1>
+    <header>    <!-- Header Title Start -->
+        <h1>Hello there, I'm <span>&quot;${user.name}&quot;</span>. Welcome to my design portfolio!</h1>
         <h2>&ndash; Photographer and chinese teacher &ndash;</h2>
-    </header>	<!-- Header Title End -->
-    <section id="slideshow">	<!-- Slideshow Start -->
+    </header>   <!-- Header Title End -->
+    <section id="slideshow">    <!-- Slideshow Start -->
         <div class="html_carousel">
-			<div id="slider">
+            <div id="slider">
             
-				<div class="slide">
-					<img src="images/slideshow/sliderimage1.jpg" width="3000" height="783" alt="image 1"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
-				</div><!--/slide-->
-                
-				<div class="slide">
-					<img src="images/slideshow/sliderimage2.jpg" width="3000" height="783" alt="image 2"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
-				</div><!--/slide-->
+                <div class="slide">
+                    <img src="images/slideshow/sliderimage1.jpg" width="3000" height="783" alt="image 1"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
+                </div><!--/slide-->
                 
                 <div class="slide">
-					<img src="images/slideshow/sliderimage3.jpg" width="3000" height="783" alt="image 3"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
-				</div><!--/slide-->
+                    <img src="images/slideshow/sliderimage2.jpg" width="3000" height="783" alt="image 2"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
+                </div><!--/slide-->
                 
-			</div><!--/slider-->
-			<div class="clearfix"></div>
-		</div><!--/html_carousel-->
-    </section>	<!-- Slideshow End -->
+                <div class="slide">
+                    <img src="images/slideshow/sliderimage3.jpg" width="3000" height="783" alt="image 3"/><!-- Replace these images with your own but make sure they are 3000px wide and 783px high or the same ration -->
+                </div><!--/slide-->
+                
+            </div><!--/slider-->
+            <div class="clearfix"></div>
+        </div><!--/html_carousel-->
+    </section>  <!-- Slideshow End -->
     
     
     <aside id="about" class=" left"> <!-- Text Section Start -->
-    	<h3>about me</h3><!-- Replace all text with what you want -->
-    	<p>Hey there, my name is &quot;${user.name}&quot; and I am a photographer and chinese teacher! This is my brand new portfolio. It's super cool because it's completely responsive! That means you can re-size it to whatever size you like and it always looks great. Have a look around and enjoy.</p>
+        <h3>about me</h3><!-- Replace all text with what you want -->
+        <p>Hey there, my name is &quot;${user.name}&quot; and I am a photographer and chinese teacher! This is my brand new portfolio. It's super cool because it's completely responsive! That means you can re-size it to whatever size you like and it always looks great. Have a look around and enjoy.</p>
     </aside>
     <aside class="right">
-    	<h3>my work</h3>
-    	<p>Below, you will be able to find lots of my work. I take loads of pretty pictures and I also make websites. If you like what you see then you can contact me below! Maybe you would like to hire me or just have a chat, either way, I look forward to hearing from you.</p>
+        <h3>my work</h3>
+        <p>Below, you will be able to find lots of my work. I take loads of pretty pictures and I also make websites. If you like what you see then you can contact me below! Maybe you would like to hire me or just have a chat, either way, I look forward to hearing from you.</p>
     </aside>
     <div class="clearfix"></div> <!-- Text Section End -->
     
     
     <section id="work"> <!-- Work Links Section Start -->
-    	<div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item.png" alt="image 1"></a><!-- Image must be 400px by 300px -->
+        <div class="item">
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item.png" alt="image 1"></a><!-- Image must be 400px by 300px -->
             <h3>Skies Of Spain</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/zyq.jsp"><img src="images/work/thumbs/item2.png" alt="image 2"></a><!-- Image must be 400px by 300px -->
-        	<h3>Beautiful Bahrain</h3><!--Title-->
+            <a href="jsp/zyq.jsp"><img src="images/work/thumbs/item2.png" alt="image 2"></a><!-- Image must be 400px by 300px -->
+            <h3>Beautiful Bahrain</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item3.png" alt="image 3"></a><!-- Image must be 400px by 300px -->
-        	<h3>Wild Stripes</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item3.png" alt="image 3"></a><!-- Image must be 400px by 300px -->
+            <h3>Wild Stripes</h3><!--Title-->
             <p>photo manipulation</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item4.png" alt="image 4"></a><!-- Image must be 400px by 300px -->
-        	<h3>Lazy Days</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item4.png" alt="image 4"></a><!-- Image must be 400px by 300px -->
+            <h3>Lazy Days</h3><!--Title-->
             <p>photo manipulation</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item5.png" alt="image 5"></a><!-- Image must be 400px by 300px -->
-        	<h3>Trapped</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item5.png" alt="image 5"></a><!-- Image must be 400px by 300px -->
+            <h3>Trapped</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
-        	<div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item6.png" alt="image 6"></a><!-- Image must be 400px by 300px -->
+            <div class="item">
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item6.png" alt="image 6"></a><!-- Image must be 400px by 300px -->
             <h3>Quad-Core</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item7.png" alt="image 7"></a><!-- Image must be 400px by 300px -->
-        	<h3>Retro Blast</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item7.png" alt="image 7"></a><!-- Image must be 400px by 300px -->
+            <h3>Retro Blast</h3><!--Title-->
             <p>illustration</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item8.png" alt="image 8"></a><!-- Image must be 400px by 300px -->
-        	<h3>Gates Of The Sun</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item8.png" alt="image 8"></a><!-- Image must be 400px by 300px -->
+            <h3>Gates Of The Sun</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
         <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item9.png" alt="image 9"></a><!-- Image must be 400px by 300px -->
-        	<h3>Winter Touch</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item9.png" alt="image 9"></a><!-- Image must be 400px by 300px -->
+            <h3>Winter Touch</h3><!--Title-->
             <p>photography</p><!--Category-->
         </div><!--/item-->
         
          <div class="item">
-        	<a href="jsp/work-template.jsp"><img src="images/work/thumbs/item10.png" alt="image 10"></a><!-- Image must be 400px by 300px -->
-        	<h3>Burn</h3><!--Title-->
+            <a href="jsp/work-template.jsp"><img src="images/work/thumbs/item10.png" alt="image 10"></a><!-- Image must be 400px by 300px -->
+            <h3>Burn</h3><!--Title-->
             <p>photo manipulation</p><!--Category-->
         </div><!--/item-->
         
@@ -158,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     <section id="bottom"> <!-- Last Words Section Start -->
-    	<h3>Thanks for looking at my new website!</h3>
+        <h3>Thanks for looking at my new website!</h3>
     </section><!-- Last Words Section End-->
 </div>
 
@@ -167,9 +175,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- DON'T TOUCH THIS SECTION -->
 
 <footer id="footer">
-	<div class="wrapper">
-    	<section class="left">
-    	<h4>Contact</h4>
+    <div class="wrapper">
+        <section class="left">
+        <h4>Contact</h4>
             <div id="formwrap">
                 <form method="post" id="submitform" action="submitemail.php" >
                             <input type="text" class="formstyle" title="Name" name="name" />
@@ -183,8 +191,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- DON'T TOUCH THIS SECTION END -->        
         
-    	<section class="right social"> <!-- Social Icons Start -->
-		<a href="http://sc.chinaz.com"><img class="icon" src="images/icons/google.png" width="32" height="32" alt="google"></a><!-- Replace with any 32px x 32px icons -->
+        <section class="right social"> <!-- Social Icons Start -->
+        <a href="http://sc.chinaz.com"><img class="icon" src="images/icons/google.png" width="32" height="32" alt="google"></a><!-- Replace with any 32px x 32px icons -->
         <a href="http://sc.chinaz.com"><img class="icon" src="images/icons/youtube.png" width="32" height="32" alt="youtube"></a><!-- Replace with any 32px x 32px icons -->
         <a href="http://sc.chinaz.com"><img class="icon" src="images/icons/facebook.png" width="32" height="32" alt="facebook"></a><!-- Replace with any 32px x 32px icons -->
         <a href="http://sc.chinaz.com"><img class="icon" src="images/icons/twitter.png" width="32" height="32" alt="twitter"></a><!-- Replace with any 32px x 32px icons -->
@@ -198,17 +206,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- SLIDESHOW SCRIPT START -->
 <script type="text/javascript">
 $("#slider").carouFredSel({
-	responsive	: true,
-	scroll		: {
-		fx			: "crossfade",
-		easing		: "swing",
-		duration	: 1000,
-		
-	},
-	items		: {
-		visible		: 1,
-		height		: "27%"
-	}
+    responsive  : true,
+    scroll      : {
+        fx          : "crossfade",
+        easing      : "swing",
+        duration    : 1000,
+        
+    },
+    items       : {
+        visible     : 1,
+        height      : "27%"
+    }
 });
 </script>
 <!-- SLIDESHOW SCRIPT END -->

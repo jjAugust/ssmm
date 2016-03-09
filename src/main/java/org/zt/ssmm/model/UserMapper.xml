@@ -7,6 +7,8 @@
     <result column="password" property="password" jdbcType="CHAR" />
     <result column="birthdate" property="birthdate" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+
   <sql id="Base_Column_List" >
     id, name, password, birthdate
   </sql>
@@ -53,6 +55,13 @@
    <select id="selectBlackIp" resultType="java.lang.Integer" parameterType="org.zt.ssmm.core.Ip" >
   select count(1) from blackip t where t.ip=#{ip} and LEFT(t.datetime,10)=LEFT(#{time},10);
   </select>
+  
+  
+  <select id="getUserdatabyid" resultType="org.zt.ssmm.core.Userdata" parameterType="java.lang.String" >
+  select * from userData t where t.userId=#{Userid};
+  </select>
+  
+  
   
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
     insert into user (name,password,birthdate,occupation,phone)

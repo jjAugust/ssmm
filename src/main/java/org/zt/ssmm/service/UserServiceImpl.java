@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.core.User;
+import org.zt.ssmm.core.Userdata;
 import org.zt.ssmm.dao.UserMapper;
 
 @Service("userService")
@@ -20,11 +21,20 @@ public class UserServiceImpl implements UserService
 		return userMapper.selectByPrimaryKey(id);
 	}
 	
+
+	
 	@Override
 	public List<User> getAllUsers() 
 	{
 		return userMapper.getAllUsers();
 	}
+	
+	@Override
+	public Userdata getInfoById(String id) 
+	{
+		return userMapper.getUserdatabyid(id);
+	}
+	
 	
 	@Override
 	public List<User> getAllUsersWithRole() 

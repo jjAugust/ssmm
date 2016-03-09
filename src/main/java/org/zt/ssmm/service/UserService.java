@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.zt.ssmm.core.Ip;
 import org.zt.ssmm.core.User;
+import org.zt.ssmm.core.Userdata;
 
 public interface UserService 
 {
 	User getUserById(Integer id);
 	List<User> getAllUsers();
 	List<User> getAllUsersWithRole();
+
+	Userdata getInfoById(String id);
 	int deleteUserAndPassword(int record);
 
 	int insertUserAndPassword(User role);
