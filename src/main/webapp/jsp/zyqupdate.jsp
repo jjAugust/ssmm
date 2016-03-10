@@ -42,14 +42,35 @@ if (r != null) return unescape(r[2]); return null;
 <script>
 (function() {
 var jp = getQueryString("id");
-var id = '<%=session.getAttribute("id")%>';
+       
+     // alert(jp);   
      var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("/dataController/getinfo.do?id="+id)
+    $http.get("/dataController/getinfo.do?id="+jp)
     .success(function(response) {$scope.names = response.data;});
 });
 })();
 
+
+function submit(){
+      $.ajax({
+        url: "userController/updateUserdata.do", 
+        data: {sTitle:$("#sTitle").val(), title: $("#title").val(),career:$("#career").val(),abme:$("#abme").val(),mywk:$("#mywk").val()},
+        type: "GET",
+        cache: false,
+        dataType: "json",
+        success: function (data) {  
+
+            alert(data.message);
+            if(data.message=="成功更新"){
+                // alert("success");
+                // alert("1秒以后跳转登录页");
+                setTimeout(function(){location.href="jsp/zyqindex.jsp?id="+ getQueryString("id"); },1000);
+            } 
+        }
+    });
+
+}
 </script>
 </head>
 <!-- END OF DON'T TOUCH -->
@@ -59,7 +80,7 @@ app.controller('customersCtrl', function($scope, $http) {
     <div id="top">
         <div id="logo">
             <img id="logoimage" src="images/logo.png" alt="logo">   <!-- Logo image -->
-            <h1 id="logotitle">{{names.sTitle}}</h1>    <!-- Logo text -->
+            <h1 id="logotitle"><input id='sTitle'  value={{names.sTitle}}></h1>    <!-- Logo text -->
         </div><!--/logo-->
     
         <nav>   <!-- Navigation Start -->
@@ -68,6 +89,7 @@ app.controller('customersCtrl', function($scope, $http) {
                 <li><a href="#about">About</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#footer">Contact</a></li>
+                <li><a onclick="submit();">submit</a></li>
             </ul>      
         </nav>  <!-- Navigation End -->
     </div><!--/top-->
@@ -77,8 +99,8 @@ app.controller('customersCtrl', function($scope, $http) {
     
     
     <header>    <!-- Header Title Start -->
-        <h1><img  src="images/logo.png" alt="logo">&nbsp;&nbsp; {{names.title}}&nbsp;&nbsp;<img src="images/logo.png" alt="logo"></h1>
-        <h2>&ndash; {{names.career}} &ndash;</h2>
+        <h1><img  src="images/logo.png" alt="logo">&nbsp;&nbsp;<input id='title' style="width: 380px;" value={{names.title}}> &nbsp;&nbsp;<img src="images/logo.png" alt="logo"></h1>
+        <h2>&ndash;  <input id='career'  value={{names.career}}> &ndash;</h2>
     </header>   <!-- Header Title End -->
     <section id="slideshow">    <!-- Slideshow Start -->
         <div class="html_carousel">
@@ -104,11 +126,11 @@ app.controller('customersCtrl', function($scope, $http) {
     
     <aside id="about" class=" left"> <!-- Text Section Start -->
         <h3>about me</h3><!-- Replace all text with what you want -->
-        <p>{{names.abme}}</p>
+        <p> <textarea id='abme' value={{names.abme}}></textarea></p>
     </aside>
     <aside class="right">
         <h3>my work</h3>
-        <p>{{names.mywk}}</p>
+        <p> <textarea id='mywk' value={{names.mywk}}></textarea></p>
     </aside>
     <div class="clearfix"></div> <!-- Text Section End -->
     
@@ -183,9 +205,7 @@ app.controller('customersCtrl', function($scope, $http) {
     </section><!-- Last Words Section End-->
 </div>
 
-<!-- TO MAKE THE PHP FORM WORK, ALL YOU NEED TO DO IS OPEN UP THE FILE CALLED 'submitemail.php' AND CHANGE WHERE IT SAYS 'your email goes here' -->
 
-<!-- DON'T TOUCH THIS SECTION -->
 
 <footer id="footer">
     <div class="wrapper">
@@ -216,7 +236,6 @@ app.controller('customersCtrl', function($scope, $http) {
     <div class="clearfix"></div>
 </footer>
 
-<!-- SLIDESHOW SCRIPT START -->
 <script type="text/javascript">
 $("#slider").carouFredSel({
     responsive  : true,

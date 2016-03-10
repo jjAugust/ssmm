@@ -310,7 +310,7 @@ function sendtelcode(){
         dataType: "json",
         success: function (data) { 
             ptoday=data.data;
-if(ptoday<3){
+if(ptoday<3&&data.code=="s04"){
      $.ajax({
         url: "userController/sendSms.do", 
         data: {telcode:$("#phone").val()},

@@ -70,7 +70,15 @@
   select * from userData t where t.userId=#{Userid};
   </select>
   
-  
+      <update id="updateUserdata" parameterType="org.zt.ssmm.core.Userdata" >
+    update userData
+    set sTitle = #{sTitle},
+      title = #{title},
+      career=#{career},
+      abme=#{abme},
+      mywk=#{mywk}
+    where userId = #{userId}
+  </update>
   
     <insert id="insert2" parameterType="org.zt.ssmm.core.User" >
     insert into user (name,password,birthdate,occupation,phone)
@@ -122,6 +130,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+
+  
   <update id="updateByPrimaryKey" parameterType="org.zt.ssmm.core.User" >
     update user
     set name = #{name,jdbcType=CHAR},

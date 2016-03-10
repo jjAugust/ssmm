@@ -13,6 +13,7 @@ public interface UserService
 	List<User> getAllUsersWithRole();
 
 	Userdata getInfoById(String id);
+	int updateUserdata(Userdata userData);
 	int deleteUserAndPassword(int record);
 
 	int insertUserAndPassword(User role);

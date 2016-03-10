@@ -86,6 +86,13 @@ public class UserServiceImpl implements UserService
 	}
 	
 	@Override
+	public int 	updateUserdata(Userdata userData)
+	{
+		return userMapper.updateUserdata(userData);
+	}
+
+	
+	@Override
 	public User selectByNamePWD(User info) 
 	{
 		return userMapper.selectByNamePWD(info);

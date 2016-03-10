@@ -53,10 +53,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
     <mvc:interceptor>    
         <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->  
         <mvc:mapping path="/" />  
-            <mvc:mapping path="/userController/showUser" />  
-            <mvc:mapping path="/userController/showUser1" />  
-            <mvc:mapping path="/userController/test" />  
-        
+            <mvc:mapping path="/userController/showUser.*" />  
+            <mvc:mapping path="/userController/showUser1.*" />  
+            <mvc:mapping path="/userController/test.*" />  
+            <mvc:mapping path="/userController/updateUserdata.*" /> 
         <bean class="org.zt.ssmm.interceptor.CommonInterceptor"/>       
     </mvc:interceptor>  
     <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->  

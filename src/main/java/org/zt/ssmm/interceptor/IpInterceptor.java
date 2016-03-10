@@ -61,7 +61,7 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
         info.setTime(df.format(new Date()));
         
         if (us.selectBlackIp(info)>=1) {  
-        	 request.getRequestDispatcher("jsp/blackIp.jsp").forward(request, response);  
+        	 request.getRequestDispatcher("/jsp/blackIp.jsp").forward(request, response);  
          	return false;
         }  
         
@@ -71,7 +71,7 @@ public class IpInterceptor extends HandlerInterceptorAdapter{
 //        System.out.println(us.selectIpOneSecond(info));
         if(us.selectIpOneSecond(info)>=5){
         	us.insertBlackIp(info);
-        	 request.getRequestDispatcher("jsp/blackIp.jsp").forward(request, response);  
+        	 request.getRequestDispatcher("/jsp/blackIp.jsp").forward(request, response);  
         	return false;
         }
             return true;     

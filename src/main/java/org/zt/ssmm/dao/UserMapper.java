@@ -13,6 +13,7 @@ public interface UserMapper {
     int insert2(User role);
 
     int insertSelective(User record);
+  int 	updateUserdata(Userdata userData);
 
     User selectByPrimaryKey(Integer id);
 

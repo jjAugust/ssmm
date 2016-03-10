@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zt.ssmm.core.Returntype;
 import org.zt.ssmm.core.User;
+import org.zt.ssmm.core.Userdata;
 import org.zt.ssmm.service.UserService;
 import org.zt.ssmm.util.ReturnUtil;
 
@@ -152,6 +153,33 @@ public class UserController
 		return text;  
 	}
 
+	@RequestMapping("/updateUserdata")
+	@ResponseBody  
+	public Object updateUserdata(String sTitle,String title,String career,String abme,String mywk, HttpServletRequest req,HttpSession httpSession)
+	{
+		
+		int u = (Integer) req.getSession().getAttribute("id");
+		
+		Userdata p=new Userdata();
+		p.setAbme(abme);
+		p.setCareer(career);
+		p.setUserId(u);
+		p.setMywk(mywk);
+		p.setsTitle(sTitle);
+		p.setTitle(title);
+		
+		int i= us.updateUserdata(p);
+		if(i==1){
+			Returntype text=new Returntype();
+			ReturnUtil.fix(text,"_KEYS_s05");
+			return text; 
+		}
+		else{
+			Returntype text=new Returntype();
+			ReturnUtil.fix(text,"_KEYS_f07");
+			return text; 
+		}
+	}
 
 	@RequestMapping("/sendSms")
 	@ResponseBody  
