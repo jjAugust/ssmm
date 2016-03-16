@@ -68,6 +68,7 @@ app.controller('customersCtrl', function($scope, $http) {
                 <li><a href="#about">About</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#footer">Contact</a></li>
+                <li><a href="/jsp/Zupdate.jsp">Edit</a></li>
             </ul>      
         </nav>  <!-- Navigation End -->
     </div><!--/top-->

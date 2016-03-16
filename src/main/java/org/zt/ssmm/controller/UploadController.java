@@ -57,7 +57,7 @@ public class UploadController {
 				// 保存的文件路径(如果用的是Tomcat服务器，文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\upload\\文件夹中  )
 				String filePath = 
 //						request.getSession().getServletContext().getRealPath("/") +
-						"C:/upload/" +filename+".jpg";
+						"/usr/local/upload" +filename+".jpg";
 
 				Uploadpic temp=new Uploadpic();
 				temp.setName(request.getSession().getAttribute("id").toString());
