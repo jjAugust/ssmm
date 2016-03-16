@@ -52,6 +52,11 @@
     values (#{ip},#{url},#{time})
   </insert>
   
+    <insert id="insertUploadPic" parameterType="org.zt.ssmm.core.Uploadpic" >
+    insert into upload_pic (url,name,inserttime,belong)
+    values (#{url},#{name},NOW(),#{belong})
+  </insert>
+  
        <insert id="insertPhoneToday" parameterType="java.lang.String" >
     insert into su_phone_time (phoneNum,time)
     values (#{phoneNum},curdate())

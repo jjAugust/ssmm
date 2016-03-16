@@ -25,5 +25,6 @@ public interface UserService
 	int insertPhoneToday(String phone);
 	int insertBlackIp(Ip info);
 	int selectBlackIp(Ip info);
+
 //	Integer deleteUserAndPassword(Integer valueOf);
 }

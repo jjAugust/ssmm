@@ -17,9 +17,9 @@ background:#222526;
 position:relative;
 padding:100px;
 font-family:verdana;
-background: url('images/bg.jpg');
-		background-size: cover;
-		color: #999;
+background: url('images/bg.jpg') no-repeat center fixed ;
+background-size: cover; 
+color: #999;
 		color: rgba(255,255,255,0.6);
 } 
    

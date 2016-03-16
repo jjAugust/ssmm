@@ -17,6 +17,7 @@ public class ReturnUtil {
 			put("_KEYS_s03","s02&删除成功");
 			put("_KEYS_s04","s04&成功查询");
 			put("_KEYS_s05","s05&成功更新");
+			put("_KEYS_s06","s06&上传成功");
 			put("_KEYS_f01","f01&失败");
 			put("_KEYS_f02","f02&name already exist");
 			put("_KEYS_f03","f03&添加失败");
@@ -24,6 +25,7 @@ public class ReturnUtil {
 			put("_KEYS_f05","f05&验证码错误");
 			put("_KEYS_f06","f06&手机验证码错误");
 			put("_KEYS_f07","f07&更新失败");
+			put("_KEYS_f08","f08&上传失败");
 		}};
 		public static void fix(Returntype text,String code)
 		{

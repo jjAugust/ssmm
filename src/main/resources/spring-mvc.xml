@@ -58,7 +58,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
     <property name="exceptionMappings"> 
         <props> 
             <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/jsp/error_fileupload.jsp页面 --> 
-            <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop> 
+            <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">jsp/error_fileupload</prop> 
         </props> 
     </property> 
 </bean>
@@ -76,6 +76,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
             <mvc:mapping path="/userController/showUser1.*" />  
             <mvc:mapping path="/userController/test.*" />  
             <mvc:mapping path="/userController/updateUserdata.*" /> 
+            <mvc:mapping path="/upload/filesUpload.*" /> 
         <bean class="org.zt.ssmm.interceptor.CommonInterceptor"/>       
     </mvc:interceptor>  
     <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->  

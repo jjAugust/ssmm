@@ -43,10 +43,11 @@ if (r != null) return unescape(r[2]); return null;
 (function() {
 var jp = getQueryString("id");
        
+var id = '<%=session.getAttribute("id")%>';
      // alert(jp);   
      var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("/dataController/getinfo.do?id="+jp)
+    $http.get("/dataController/getinfo.do?id="+id)
     .success(function(response) {$scope.names = response.data;});
 });
 })();
@@ -65,7 +66,7 @@ function submit(){
             if(data.message=="成功更新"){
                 // alert("success");
                 // alert("1秒以后跳转登录页");
-                setTimeout(function(){location.href="jsp/zyqindex.jsp?id="+ getQueryString("id"); },1000);
+                setTimeout(function(){location.href="jsp/Zindex.jsp"; },1000);
             } 
         }
     });
